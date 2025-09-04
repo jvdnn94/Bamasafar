@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@font-face {
+  font-family: 'Yekan';
+  src: url('/assets/fonts/yekan-normal.woff2') format('woff2'),
+       url('/assets/fonts/yekan-normal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* باعث می‌شود در صورت تاخیر، فونت پیش‌فرض نمایش داده شود */
+}
+
+
+body {
+  font-family: 'Yekan', sans-serif;
+}
