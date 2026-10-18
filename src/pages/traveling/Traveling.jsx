@@ -1,34 +1,81 @@
-import React from 'react'
-
-import CustomButton from '../../components/UI/Button/Button'
-import CardGuide from '../../components/travelingComp/CardGuide'
-import Cards from '../../components/cards/cards'
-import '../../App.css'
+import React from "react";
+import CustomButton from "../../components/UI/Button/Button";
+import CardGuide from "../../components/travelingComp/CardGuide";
+import Cards from "../../components/cards/cards";
+import "../../App.css";
 
 const Traveling = () => {
-    return (
-        <>
-            <div className="h-screen w-full flex flex-col items-center justify-center text-center text-white text-2xl shadow-inset-heavy bg-cover bg-center" style={{ backgroundImage: `url(images/2.jpg)` }}>
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // TODO: connect to search
+  };
 
+  return (
+    <main>
+      {/* ============ HERO ============ */}
+      <section className="relative w-full min-h-[75vh] sm:min-h-[80vh] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(images/2.jpg)" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/55 to-slate-950/60" />
 
-                <p className="text-3xl text-neutral-200 text-center mt-4 font-bold">
-                    پرتال جامع گردش و سفر
-                </p>
-                <h1 className="text-center text-2xl text-neutral-200">
-                    بهترین راهنمای ایرانگردی، جهانگردی، خرید بلیط هواپیما، راهنمای اخذ ویزا، رزرو هتل و مکان های اقامتی، مکان های گردشگری
-                </h1>
-                <div className=" backdrop-blur-md border-2 border-black rounded-md py-12 px-6 mt-12 mx-6" dir='rtl'>
+        <div className="relative z-10 min-h-[75vh] sm:min-h-[80vh] flex flex-col items-center justify-center text-center px-4 py-16">
+          <span className="inline-block mb-5 px-4 py-1.5 bg-white/15 backdrop-blur-md border border-white/20 rounded-full text-white text-xs sm:text-sm font-medium">
+            پرتال جامع گردش و سفر
+          </span>
 
-                    <input className="w-[400px] sm:w-[544px] md:w-[744px] py-6 pr-6 bg-white border border-[#e1e5ee] rounded-md shadow-[0_6px_20px_rgba(24,104,188,0.07)] text-[#0e0e0e] text-[17px] outline-none h-14" type="text" placeholder="جستجوی مکان، شهر، کشور و..." autoComplete="off" />
-                    <CustomButton buttonStyle="btn--search" buttonSize="btn--large" className='m-2 w-[70%] md:w-24'>
-                        جستجو
-                    </CustomButton>
-                </div>
-            </div>
-            <CardGuide />
-            <Cards />
-        </>
+          <h1
+            dir="rtl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-3xl"
+          >
+            بهترین راهنمای سفر
+          </h1>
 
-    )
-}
-export default Traveling
+          <p
+            dir="rtl"
+            className="mt-4 text-white/85 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed"
+          >
+            ایران‌گردی، جهان‌گردی، خرید بلیط هواپیما، راهنمای اخذ ویزا،
+            رزرو هتل و مکان‌های اقامتی و گردشگری
+          </p>
+
+          <form
+            onSubmit={handleSearch}
+            dir="rtl"
+            className="mt-8 w-full max-w-2xl bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-2 flex flex-col sm:flex-row gap-2"
+          >
+            <input
+              type="text"
+              name="search"
+              placeholder="جستجوی مکان، شهر، کشور و..."
+              autoComplete="off"
+              className="flex-1 min-w-0 px-5 py-4 bg-transparent text-gray-900 placeholder-gray-500 text-sm sm:text-base outline-none rounded-xl"
+            />
+            <CustomButton
+              buttonStyle="btn--search"
+              buttonSize="btn--large"
+              className="w-full sm:w-auto sm:min-w-[120px] shrink-0"
+            >
+              جستجو
+            </CustomButton>
+          </form>
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 text-white/60">
+          <span className="text-[10px] tracking-widest">اسکرول</span>
+          <div className="w-px h-8 bg-white/40 animate-pulse" />
+        </div>
+      </section>
+
+      {/* ============ GUIDE ============ */}
+      <CardGuide />
+
+      {/* ============ DESTINATIONS ============ */}
+      <Cards />
+    </main>
+  );
+};
+
+export default Traveling;

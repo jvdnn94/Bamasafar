@@ -1,59 +1,83 @@
-import React from "react";
 import CardItem from "./cardsItems";
+
+const destinations = [
+  {
+    id: 1,
+    src: "images/9.jpg",
+    text: "دیدن آبشار ناشناخته در دل جنگل‌های آمازون",
+    label: "ماجراجویانه",
+    path: "/destinations/amazon",
+  },
+  {
+    id: 2,
+    src: "images/8.jpg",
+    text: "کویری زیبا در قلب ایران",
+    label: "ماجراجویانه",
+    path: "/destinations/iran-desert",
+  },
+  {
+    id: 3,
+    src: "images/6.jpg",
+    text: "تجربه‌ای متفاوت از گردش در یک شهر",
+    label: "شهری",
+    path: "/destinations/city-tour",
+  },
+  {
+    id: 4,
+    src: "images/2.jpg",
+    text: "سفری خاطره‌انگیز در جزایر کارائیب",
+    label: "لوکس",
+    path: "/destinations/caribbean",
+  },
+  {
+    id: 5,
+    src: "images/1.jpg",
+    text: "آرامشی عمیق در رشته‌کوه‌های آلپ",
+    label: "لوکس",
+    path: "/destinations/alps",
+  },
+  {
+    id: 6,
+    src: "images/3.jpg",
+    text: "کشف تاریخ در دل کوچه‌های قدیمی",
+    label: "فرهنگی",
+    path: "/destinations/historic",
+  },
+];
 
 function Cards() {
   return (
-    <div className="bg-blue-200 p-8 border-t-2">
-      <h1 className="text-center text-2xl font-bold text-gray-800 mb-12">
-        مقاصد برتر
-      </h1>
+    <section className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-[1120px] w-[90%] mx-auto">
-     
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CardItem
-            src="images/9.jpg"
-            text="دیدن آبشار ناشناخته در دل جنگل های آمازون"
-            label=" ماجراجویانه"
-            path="/dervices"
-          />
-          <CardItem
-            src="images/8.jpg"
-            text="کویری زیبا در قلب ایران"
-            label="ماجراجویانه "
-            path="/dervices"
-          />
-          <CardItem
-            src="images/6.jpg"
-            text="تجربه ای متفاوت از گردش در یک شهر"
-            label="ماجراجویانه"
-            path="/dervices"
-          />
-          <CardItem
-            src="images/2.jpg"
-            text="سفری خاطره انگیز در جزایر کارائیب"
-            label="لوکس"
-            path="/dervices"
-          />
-          <CardItem
-            src="images/1.jpg"
-            text="آرامشی عمیق در رشته کوه های آلپ"
-            label="لوکس"
-            path="/dervices"
-          />
-          <CardItem
-            src="images/6.jpg"
-            text="تجربه ای متفاوت از گردش در یک شهر"
-            label="لوکس"
-            path="/dervices"
-          />
+        {/* عنوان بخش */}
+        <div className="text-center mb-12 sm:mb-16" dir="rtl">
+          <span className="text-xs sm:text-sm font-semibold text-blue-600 tracking-wider">
+            انتخاب مسافران
+          </span>
+          <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900">
+            مقاصد برتر
+          </h2>
+          <p className="mt-3 text-gray-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            محبوب‌ترین مقاصد سفر از نگاه مسافران ما
+          </p>
+        </div>
 
-این یک وبسایت آزمایشی در حوزه توریسم  و تهیه بلیط هواپیما است که بوسیله ری اکت  و پکیج ویت  ساخته شده و استایل ها هم بصورت کامل با تیلویند ایجاد شده اند(البته این سایت در مراحل اولیه است و به ای پی آی متصل نیست و فاقد دیتا می باشد که بزودی نسخه کامل ارائه می گردد)، در ضمن سایت کاملا ریسپانسیو بوده و با تمامی نماشگر ها و ابزار ها سازگار است.
-        
-        
+        {/* گرید کارت‌ها */}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+          {destinations.map((item) => (
+            <li key={item.id}>
+              <CardItem
+                src={item.src}
+                text={item.text}
+                label={item.label}
+                path={item.path}
+              />
+            </li>
+          ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
